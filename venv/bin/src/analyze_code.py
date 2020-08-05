@@ -1,6 +1,6 @@
 # **************************************************************************
 # Created on 24-Oct-2018 by Aniruddha Ghosh
-# Maintained at https://github.com/aniruddha-stqc/Android_Script
+# Maintained at https://github.com/aniruddha-stqc/ios_script
 # **************************************************************************
 import os
 import globals
@@ -643,7 +643,7 @@ def search_gradle():
 #Search for "RootBeer", "SafetyNet",
 #Details:
 #we define "root detection" a bit more broadly, including custom ROMs 
-#detection, i.e., determining whether the device is a stock Android build or 
+#detection, i.e., determining whether the device is a stock iOS build or
 #a custom build.
 #**************************************************************************
 def search_root_detect():

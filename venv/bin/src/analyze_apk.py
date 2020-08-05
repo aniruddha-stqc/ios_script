@@ -1,6 +1,6 @@
 # **************************************************************************
 # Created on 24-Oct-2018 by Aniruddha Ghosh
-# Maintained at https://github.com/aniruddha-stqc/Android_Script
+# Maintained at https://github.com/aniruddha-stqc/ios_script
 # **************************************************************************
 import os
 import zipfile

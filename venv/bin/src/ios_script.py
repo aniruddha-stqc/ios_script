@@ -1,6 +1,6 @@
 #**************************************************************************
 #Created on 24-Oct-2018 by Aniruddha Ghosh
-#Maintained at https://github.com/aniruddha-stqc/Android_Script
+#Maintained at https://github.com/aniruddha-stqc/ios_script
 #**************************************************************************
 
 import analyze_apk
@@ -90,13 +90,13 @@ def parse_arguments(p_argv):
         opts, args = getopt.getopt(p_argv, 'a:c:h', ['apk=', 'code=','help'])
     except getopt.GetoptError:
         # Help text for exception cases
-        print("android_script --help")
+        print("ios_script --help")
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-h', '--help'):
             print("script version 1.8 dated 27-Nov-2019")
             # Help text
-            print("\nUsage:\nandroid_script --apk <path to apk> --code <path to source folder>")
+            print("\nUsage:\nios_script --code <path to source folder>")
             sys.exit(2)
         elif opt in ('-a', '--apk'):
             # Path to Source code
@@ -107,10 +107,10 @@ def parse_arguments(p_argv):
     # Base path
     globals.gv_path_to_base = os.path.commonprefix(["/", globals.gv_path_to_code_folder])
     # Path to apksigner
-    globals.gv_path_to_apksigner = "/root/Android/Sdk/build-tools/28.0.3/apksigner"
+    #globals.gv_path_to_apksigner = "/root/Android/Sdk/build-tools/28.0.3/apksigner"
 
 #**************************************************************************
-#Main function of the Android Script
+#Main function of the iOS Script
 #**************************************************************************
 def main(p_argv):
     #Parse arguments
