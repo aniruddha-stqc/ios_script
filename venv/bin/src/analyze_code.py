@@ -352,7 +352,7 @@ def search_transport():
 #Testing Custom Certificate Stores and Certificate Pinning (MSTG-NETWORK-3 and MSTG-NETWORK-4)
 #**************************************************************************
 def search_x509_validation():
-    globals.write_to_file("START OF: Execution log for V5.3\n", "logs/log_v5.3.txt")
+    globals.write_to_file("START OF: Execution log for V5.3\n", "logs/log_NETWORK-2.txt")
     search_generic(".swift", "connection:canAuthenticateAgainstProtectionSpace", 'logs/log_NETWORK-2.txt')
     search_generic(".swift", "forAuthenticationChallenge", 'logs/log_NETWORK-2.txt')
     search_generic(".swift", "SecTrustEvaluate", 'logs/log_NETWORK-2.txt')
@@ -366,7 +366,7 @@ def search_x509_validation():
 
     search_hardcode( "x509", 'logs/log_NETWORK-2.txt')
 
-    globals.write_to_file("\nEND OF: Execution log for V5.3\n", "logs/log_v5.3.txt")
+    globals.write_to_file("\nEND OF: Execution log for V5.3\n", "logs/log_NETWORK-2.txt")
     print("Completed MSTG-NETWORK-3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
