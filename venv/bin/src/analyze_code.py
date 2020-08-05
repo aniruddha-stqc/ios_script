@@ -323,18 +323,31 @@ def search_authentication():
 #**************************************************************************
 #OWASP MASVS v1.0 point 5.1
 #Cheat Sheet:
-#Search for "http://", "https://", ""
-#Details:
-#Verify that data is encrypted on the network using TLS. The secure channel
-# is used consistently throughout the app.
+#App Transport Security (MSTG-NETWORK-2)
 #**************************************************************************
 def search_transport():
     globals.write_to_file("START OF: Execution log for V5.1\n", "logs/log_v5.1.txt")
-    search_hardcode("http:", 'logs/log_v5.1.txt')
-    search_hardcode("https:", 'logs/log_v5.1.txt')
-    search_hardcode("ftp:", 'logs/log_v5.1.txt')
-    search_hardcode("sftp:", 'logs/log_v5.1.txt')
-    globals.write_to_file("\nEND OF: Execution log for V5.1\n", "logs/log_v5.1.txt")
+    search_hardcode("http:", 'logs/log_NETWORK-2.txt')
+    search_hardcode("https:", 'logs/log_NETWORK-2.txt')
+    search_hardcode("ftp:", 'logs/log_NETWORK-2.txt')
+    search_hardcode("sftp:", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift","URLSession", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "NSURLConnection", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "NSURLConnection", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "CFURL", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAppTransportSecurity", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAllowsArbitraryLoads", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAllowsArbitraryLoadsInWebContent", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAllowsLocalNetworking", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAllowsArbitraryLoadsForMedia", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSIncludesSubdomains", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSExceptionAllowsInsecureHTTPLoads", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSExceptionMinimumTLSVersion", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSExceptionRequiresForwardSecrecy", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "NSAllowsArbitraryLoadsInWebContent", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "NSExceptionDomains", 'logs/log_NETWORK-2.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V5.1\n", "logs/log_NETWORK-2.txt")
     print("Completed V5.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 #**************************************************************************
 #OWASP MASVS v1.0 point 5.3
