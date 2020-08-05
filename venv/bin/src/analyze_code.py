@@ -269,7 +269,7 @@ def search_algos():
     search_generic(".swift", "CCCrypt", 'logs/log_CRYPTO-2.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V3.2\n", "logs/log_CRYPTO-2.txt")
-    print("Completed V3.2 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-CRYPTO-2 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 3.3
@@ -286,7 +286,7 @@ def search_old_algos():
     search_generic(".swift", "NSUserDefaults", 'logs/log_CRYPTO-5.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V3.3\n", "logs/log_CRYPTO-5.txt")
-    print("Completed V3.3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed CRYPTO-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 3.6
@@ -299,7 +299,7 @@ def search_random():
     search_hardcode("Random", 'logs/log_CRYPTO-6.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V3.6\n", "logs/log_CRYPTO-6.txt")
-    print("Completed V3.6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-CRYPTO-6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 4.1
@@ -345,7 +345,7 @@ def search_transport():
     search_generic(".plist", "NSExceptionDomains", 'logs/log_NETWORK-2.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V5.1\n", "logs/log_NETWORK-2.txt")
-    print("Completed V5.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-NETWORK-2 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 #**************************************************************************
 #OWASP MASVS v1.0 point 5.3
 #Cheat Sheet:
@@ -367,7 +367,7 @@ def search_x509_validation():
     search_hardcode( "x509", 'logs/log_NETWORK-2.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V5.3\n", "logs/log_v5.3.txt")
-    print("Completed V5.3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-NETWORK-3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.1
@@ -446,7 +446,7 @@ def search_ipc_output():
     search_generic(".swift", "UIApplicationOpenURLOptionsSourceApplicationKey", 'logs/log_PLATFORM-3.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.4\n", "logs/log_PLATFORM-3.txt")
-    print("Completed V6.4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 
 #**************************************************************************
@@ -489,7 +489,7 @@ def search_ipc_output():
     search_generic(".plist", "NSXPCConnection", 'logs/log_PLATFORM-4.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.4\n", "logs/log_PLATFORM-4.txt")
-    print("Completed V6.4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.5
@@ -507,7 +507,7 @@ def search_setJavaScriptEnabled():
     search_generic(".swift", "WKPreferences", 'logs/log_PLATFORM-5.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.5\n", "logs/log_PLATFORM-5.txt")
-    print("Completed V6.5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.6
@@ -529,7 +529,7 @@ def search_webview_config():
     search_generic(".swift", "allowUniversalAccessFromFileURLs", 'logs/log_PLATFORM-6.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.6\n", "logs/log_PLATFORM-6.txt")
-    print("Completed V6.6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.7
@@ -551,7 +551,7 @@ def search_addjavascriptinterface():
     search_generic(".swift", "javascriptBridgeCallBack:", 'logs/log_PLATFORM-7.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.7\n", "logs/log_PLATFORM-7.txt")
-    print("Completed V6.7 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-7 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.8
@@ -593,25 +593,32 @@ def search_serialization():
     search_generic(".swift", "protobuf", 'logs/log_PLATFORM-8.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.8\n", "logs/log_PLATFORM-8.txt")
-    print("Completed V6.8 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-8 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 7.4
 #Cheat Sheet:
-#Search for 'debug', 'proxy'
-#Details:
-#Verify that debugging code has been removed, and the app does not log
-# verbose errors or debugging messages.
+#Finding Debugging Code and Verbose Error Logging (MSTG-CODE-4)
 #**************************************************************************
 def search_debugging_code():
-    globals.write_to_file("START OF: Execution log for V7.4\n", "logs/log_v7.4.txt")
-    search_generic(".java","debug", 'logs/log_v7.4.txt')
-    search_generic(".java","proxy", 'logs/log_v7.4.txt')
-    search_generic(".java","test", 'logs/log_v7.4.txt')
-    search_generic(".java","uat", 'logs/log_v7.4.txt')
-    search_generic(".java","demo", 'logs/log_v7.4.txt')
-    globals.write_to_file("\nEND OF: Execution log for V7.4\n", "logs/log_v7.4.txt")
-    print("Completed V7.4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V7.4\n", "logs/log_CODE-4.txt")
+    search_generic(".swift","debug", 'logs/log_CODE-4.txt')
+    search_generic(".swift","proxy", 'logs/log_CODE-4.txt')
+    search_generic(".swift","test", 'logs/log_CODE-4.txt')
+    search_generic(".swift","uat", 'logs/log_CODE-4.txt')
+    search_generic(".swift","demo", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "NSLog", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "println", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "print", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "dump", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "debugPrint", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "_isDebugAssertConfiguration", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "_isReleaseAssertConfiguration", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "_isFastAssertConfiguration", 'logs/log_CODE-4.txt')
+    search_generic(".swift", "debugPrint", 'logs/log_CODE-4.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V7.4\n", "logs/log_CODE-4.txt")
+    print("Completed MSTG-CODE-4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 7.9
