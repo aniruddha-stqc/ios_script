@@ -166,7 +166,7 @@ def search_keyboard_cache():
     search_generic(".swift", "secureTextEntry", 'logs/log_STORAGE-5.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V2.4\n", "logs/log_STORAGE-5.txt")
-    print("Completed V2.4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-STORAGE-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 2.5
@@ -191,7 +191,7 @@ def search_clipboard():
     search_generic(".swift", "NSFileCoordinator", 'logs/log_STORAGE-6.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V2.5\n", "logs/log_STORAGE-6.txt")
-    print("Completed V2.5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-STORAGE-6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 2.7
@@ -204,33 +204,29 @@ def search_masking():
     search_generic(".swift","isSecureTextEntry", 'logs/log_STORAGE-7.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V2.7\n", "logs/log_STORAGE-7.txt")
-    print("Completed V2.7 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-STORAGE-7 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 3.1
 #Cheat Sheet:
-#Search for "secret", "key", "password", "passphrase", "SecretKeySpec",
-# "AES", "IvParameterSpec", "cipher.init",
-#Details:
-#Verify that the app does not rely on symmetric cryptography with hardcoded
-# keys as a sole method of encryption.
+#CRYPTO-1
 #**************************************************************************
 def search_hardcode_keys():
-    globals.write_to_file("START OF: Execution log for V3.1\n", "logs/log_v3.1.txt")
-    search_hardcode("confidential", 'logs/log_v3.1.txt')
-    search_hardcode("key", 'logs/log_v3.1.txt')
-    search_hardcode("password", 'logs/log_v3.1.txt')
-    search_hardcode("passphrase", 'logs/log_v3.1.txt')
-    search_hardcode("Token", 'logs/log_v3.1.txt')
-    search_hardcode("final", 'logs/log_v3.1.txt')
-    search_hardcode("enum", 'logs/log_v3.1.txt')
-    search_hardcode("AUTHTOKEN", 'logs/log_v3.1.txt')
-    search_hardcode("SecretKeySpec", 'logs/log_v3.1.txt')
-    search_hardcode("AES", 'logs/log_v3.1.txt')
-    search_hardcode("IvParameterSpec", 'logs/log_v3.1.txt')
-    search_hardcode("cipher.init", 'logs/log_v3.1.txt')
-    globals.write_to_file("\nEND OF: Execution log for V3.1\n", "logs/log_v3.1.txt")
-    print("Completed V3.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V3.1\n", "logs/log_CRYPTO-1.txt")
+    search_hardcode("confidential", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("key", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("password", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("passphrase", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("Token", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("final", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("enum", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("AUTHTOKEN", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("SecretKeySpec", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("AES", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("IvParameterSpec", 'logs/log_CRYPTO-1.txt')
+    search_hardcode("cipher.init", 'logs/log_CRYPTO-1.txt')
+    globals.write_to_file("\nEND OF: Execution log for V3.1\n", "logs/log_CRYPTO-1.txt")
+    print("Completed MSTG-CRYPTO-1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 3.2
@@ -418,16 +414,10 @@ def search_ipc_input():
 
     search_generic(".swift", "CLLocationManager", 'logs/log_PLATFORM-1.txt')
 
-    search_generic(".plist", "TGMediaAssetsLibrary", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "PHPhotoLibrary", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "associated-domain", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "apple-app-site-association", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "PHPhotoLibrary", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "PHPhotoLibrary", 'logs/log_PLATFORM-1.txt')
-    search_generic(".plist", "PHPhotoLibrary", 'logs/log_PLATFORM-1.txt')
-
-
-
+    search_generic(".swift", "TGMediaAssetsLibrary", 'logs/log_PLATFORM-1.txt')
+    search_generic(".swift", "PHPhotoLibrary", 'logs/log_PLATFORM-1.txt')
+    search_generic(".swift", "associated-domain", 'logs/log_PLATFORM-1.txt')
+    search_generic(".swift", "apple-app-site-association", 'logs/log_PLATFORM-1.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.2\n", 'logs/log_PLATFORM-1.txt')
     print("Completed V6.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
