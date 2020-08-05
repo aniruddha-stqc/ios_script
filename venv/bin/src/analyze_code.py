@@ -492,63 +492,105 @@ def search_ipc_output():
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.5
 #Cheat Sheet:
-#Search for 'setJavaScriptEnabled'. The default is false.
-#Details:
-#Verify that JavaScript is disabled in WebViews unless explicitly required.
+#Testing iOS WebViews (MSTG-PLATFORM-5)
 #**************************************************************************
 def search_setJavaScriptEnabled():
-    globals.write_to_file("START OF: Execution log for V6.5\n", "logs/log_v6.5.txt")
-    search_generic(".java","WebView", 'logs/log_v6.5.txt')
-    search_generic(".java","setJavaScriptEnabled", 'logs/log_v6.5.txt')
-    globals.write_to_file("\nEND OF: Execution log for V6.5\n", "logs/log_v6.5.txt")
+    globals.write_to_file("START OF: Execution log for V6.5\n", "logs/log_PLATFORM-5.txt")
+    search_generic(".swift", "UIWebView", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "WKWebView", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "SFSafariViewController", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "javaScriptEnabled", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "JavaScriptCanOpenWindowsAutomatically", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "hasOnlySecureContent", 'logs/log_PLATFORM-5.txt')
+    search_generic(".swift", "WKPreferences", 'logs/log_PLATFORM-5.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V6.5\n", "logs/log_PLATFORM-5.txt")
     print("Completed V6.5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.6
 #Cheat Sheet:
-#Search for "setAllowContentAccess", "setAllowFileAccess",
-#"setAllowFileAccessFromFileURLs", "setAllowUniversalAccessFromFileURLs"
-#Details:
-#Verify that WebViews are configured to allow only the minimum set of protocol
-#  handlers required (ideally, only https). Potentially dangerous handlers,
-#  such as file, tel and app-id, are disabled.
+#Testing WebView Protocol Handlers (MSTG-PLATFORM-6)
 #**************************************************************************
 def search_webview_config():
-    globals.write_to_file("START OF: Execution log for V6.6\n", "logs/log_v6.6.txt")
-    search_generic(".java","setAllowContentAccess", 'logs/log_v6.6.txt')
-    search_generic(".java","setAllowFileAccess", 'logs/log_v6.6.txt')
-    search_generic(".java","setAllowFileAccessFromFileURLs", 'logs/log_v6.6.txt')
-    search_generic(".java","setAllowUniversalAccessFromFileURLs", 'logs/log_v6.6.txt')
-    globals.write_to_file("\nEND OF: Execution log for V6.6\n", "logs/log_v6.6.txt")
+    globals.write_to_file("START OF: Execution log for V6.6\n", "logs/log_PLATFORM-6.txt")
+    search_generic(".swift","loadHTMLString:baseURL:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift","loadData:MIMEType:textEncodingName:baseURL:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift","baseURL", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift","applewebdata:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "pathForResource:ofType:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "URLForResource:withExtension:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "init(contentsOf:encoding:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "loadFileURL:allowingReadAccessToURL:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "URLForResource:withExtension:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "allowFileAccessFromFileURLs:", 'logs/log_PLATFORM-6.txt')
+    search_generic(".swift", "allowUniversalAccessFromFileURLs", 'logs/log_PLATFORM-6.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V6.6\n", "logs/log_PLATFORM-6.txt")
     print("Completed V6.6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.7
 #Cheat Sheet:
-#Search for 'addjavascriptinterface('
-#Details:
-#If native methods of the app are exposed to a WebView, verify that the
-# WebView only renders JavaScript contained within the app package.
+#Determining Whether Native Methods Are Exposed Through WebViews (MSTG-PLATFORM-7)
 #**************************************************************************
 def search_addjavascriptinterface():
-    globals.write_to_file("START OF: Execution log for V6.7\n", "logs/log_v6.7.txt")
-    search_generic(".java","addjavascriptinterface", 'logs/log_v6.7.txt')
-    globals.write_to_file("\nEND OF: Execution log for V6.7\n", "logs/log_v6.7.txt")
+    globals.write_to_file("START OF: Execution log for V6.7\n", "logs/log_PLATFORM-7.txt")
+    search_generic(".swift","JSContext", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "JSExport", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "valueForKeyPath", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "add(_ scriptMessageHandler:name:)", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "WKScriptMessageHandler", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "JavaScriptBridgeMessageHandler", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "JavaScriptBridgeMessageHandler", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "JavaScriptBridgeMessageHandler", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "evaluateJavaScript:completionHandler:", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "stringByEvaluatingJavaScriptFromString:", 'logs/log_PLATFORM-7.txt')
+    search_generic(".swift", "javascriptBridgeCallBack:", 'logs/log_PLATFORM-7.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V6.7\n", "logs/log_PLATFORM-7.txt")
     print("Completed V6.7 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 6.8
 #Cheat Sheet:
-#Search for 'implements Serializable', 'implements Parcelable'
-#Details:
-#Verify that object serialization, if any, is implemented using safe
-# serialization APIs.
+#Testing Object Persistence (MSTG-PLATFORM-8)
 #**************************************************************************
 def search_serialization():
-    globals.write_to_file("START OF: Execution log for V6.8\n", "logs/log_v6.8.txt")
-    search_generic(".java","implements Serializable", 'logs/log_v6.8.txt')
-    search_generic(".java","implements Parcelable", 'logs/log_v6.8.txt')
-    globals.write_to_file("\nEND OF: Execution log for V6.8\n", "logs/log_v6.8.txt")
+    globals.write_to_file("START OF: Execution log for V6.8\n", "logs/log_PLATFORM-8.txt")
+    search_generic(".swift","NSCoding", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift","NSSecureCoding", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "NSMutableData", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "NSCoding", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "NSKeyedArchiver", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Codable", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "NSKeyedUnarchiver", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "JSONEncoder", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Mantle", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "JSONModel", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "JSONEncoder", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "SwiftyJSON", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "ObjectMapper", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "JSONKit", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "YYModel", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "SBJson", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Unbox", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Gloss", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Mapper", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "JASON", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Arrow", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Fuzi", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Ono", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "AEXML", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "Mapper", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "RaptureXML", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "SwiftyXMLParser", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "SWXMLHash", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "XMLParser", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "shouldResolveExternalEntities", 'logs/log_PLATFORM-8.txt')
+    search_generic(".swift", "protobuf", 'logs/log_PLATFORM-8.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V6.8\n", "logs/log_PLATFORM-8.txt")
     print("Completed V6.8 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
