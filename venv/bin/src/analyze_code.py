@@ -334,7 +334,8 @@ def search_transport():
     search_generic(".swift","URLSession", 'logs/log_NETWORK-2.txt')
     search_generic(".swift", "NSURLConnection", 'logs/log_NETWORK-2.txt')
     search_generic(".swift", "NSURLConnection", 'logs/log_NETWORK-2.txt')
-    search_generic(".plist", "CFURL", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "CFURL", 'logs/log_NETWORK-2.txt')
+
     search_generic(".plist", "NSAppTransportSecurity", 'logs/log_NETWORK-2.txt')
     search_generic(".plist", "NSAllowsArbitraryLoads", 'logs/log_NETWORK-2.txt')
     search_generic(".plist", "NSAllowsArbitraryLoadsInWebContent", 'logs/log_NETWORK-2.txt')
@@ -344,33 +345,31 @@ def search_transport():
     search_generic(".plist", "NSExceptionAllowsInsecureHTTPLoads", 'logs/log_NETWORK-2.txt')
     search_generic(".plist", "NSExceptionMinimumTLSVersion", 'logs/log_NETWORK-2.txt')
     search_generic(".plist", "NSExceptionRequiresForwardSecrecy", 'logs/log_NETWORK-2.txt')
-    search_generic(".swift", "NSAllowsArbitraryLoadsInWebContent", 'logs/log_NETWORK-2.txt')
-    search_generic(".swift", "NSExceptionDomains", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSAllowsArbitraryLoadsInWebContent", 'logs/log_NETWORK-2.txt')
+    search_generic(".plist", "NSExceptionDomains", 'logs/log_NETWORK-2.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V5.1\n", "logs/log_NETWORK-2.txt")
     print("Completed V5.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 #**************************************************************************
 #OWASP MASVS v1.0 point 5.3
 #Cheat Sheet:
-#Search for "SSLSocketFactory", "X509TrustManager", "getAcceptedIssuers",
-#"checkClientTrusted", "checkServerTrusted", "onReceivedSslError",
-# "handler.proceed", "HostnameVerifier", ALLOW_ALL_HOSTNAME_VERIFIER",
-#Details:
-#Verify that the app verifies the X.509 certificate of the remote endpoint
-# when the secure channel is established. Only certificates signed  by a
-# valid CA are accepted.
+#Testing Custom Certificate Stores and Certificate Pinning (MSTG-NETWORK-3 and MSTG-NETWORK-4)
 #**************************************************************************
 def search_x509_validation():
     globals.write_to_file("START OF: Execution log for V5.3\n", "logs/log_v5.3.txt")
-    search_generic(".java","SSLSocketFactory", 'logs/log_v5.3.txt')
-    search_generic(".java","X509TrustManager", 'logs/log_v5.3.txt')
-    search_generic(".java","getAcceptedIssuers", 'logs/log_v5.3.txt')
-    search_generic(".java","checkClientTrusted", 'logs/log_v5.3.txt')
-    search_generic(".java","checkServerTrusted", 'logs/log_v5.3.txt')
-    search_generic(".java","onReceivedSslError", 'logs/log_v5.3.txt')
-    search_generic(".java","handler.proceed", 'logs/log_v5.3.txt')
-    search_generic(".java","HostnameVerifier", 'logs/log_v5.3.txt')
-    search_generic(".java","ALLOW_ALL_HOSTNAME_VERIFIER", 'logs/log_v5.3.txt')
+    search_generic(".swift", "connection:canAuthenticateAgainstProtectionSpace", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "forAuthenticationChallenge", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "SecTrustEvaluate", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "TrustKit", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "ServerTrustPolicy", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "AFSecurityPolicy", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "AlamoFire", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "TrustKit", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "AFNetworking", 'logs/log_NETWORK-2.txt')
+    search_generic(".swift", "CFStream", 'logs/log_NETWORK-2.txt')
+
+    search_hardcode( "x509", 'logs/log_NETWORK-2.txt')
+
     globals.write_to_file("\nEND OF: Execution log for V5.3\n", "logs/log_v5.3.txt")
     print("Completed V5.3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
