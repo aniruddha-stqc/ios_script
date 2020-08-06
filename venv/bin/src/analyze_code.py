@@ -761,113 +761,41 @@ def search_root_detect():
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.2
 #Cheat Sheet:
-#Search for "jdwp"
-#Details:
-#Debugging is a highly effective way to analyze runtime app behavior. It 
-#allows the reverse engineer to step through the code, stop app execution 
-#at arbitrary points, inspect the state of variables, read and modify 
-#memory, and a lot more.
+#Testing Anti-Debugging Detection (MSTG-RESILIENCE-2)
 #**************************************************************************
 def search_anti_debug():
-    globals.write_to_file("START OF: Execution log for V8.2\n", "logs/log_v8.2.txt")
-    search_generic(".java","jdwp", 'logs/log_v8.2.txt')
-    search_generic(".java","ro.debuggable", 'logs/log_v8.2.txt')
-    search_generic(".java","FLAG_DEBUGGABLE", 'logs/log_v8.2.txt')
-    search_generic(".java","isDebuggerConnected ", 'logs/log_v8.2.txt')
-    search_generic(".java","JNIEXPORT", 'logs/log_v8.2.txt')
-    search_generic(".java","JNICALL", 'logs/log_v8.2.txt')
-    search_generic(".java","gDvm", 'logs/log_v8.2.txt')
-    search_generic(".java","debuggerConnected", 'logs/log_v8.2.txt')
-    search_generic(".java","debuggerActive", 'logs/log_v8.2.txt')
-    search_generic(".java","JNI_TRUE", 'logs/log_v8.2.txt')
-    search_generic(".java","JNI_FALSE", 'logs/log_v8.2.txt')
-    search_generic(".java","threadCpuTimeNanos", 'logs/log_v8.2.txt')
-    search_generic(".java","DvmGlobals", 'logs/log_v8.2.txt')
-    search_generic(".java","jdwpAllowed", 'logs/log_v8.2.txt')
-    search_generic(".java","jdwpConfigured", 'logs/log_v8.2.txt')
-    search_generic(".java","JdwpTransportType", 'logs/log_v8.2.txt')
-    search_generic(".java","JdwpState", 'logs/log_v8.2.txt')
-    search_generic(".java","methDalvikDdmcServer_dispatch", 'logs/log_v8.2.txt')
-    search_generic(".java","JdwpSocketState", 'logs/log_v8.2.txt')
-    search_generic(".java","JdwpAdbState", 'logs/log_v8.2.txt')
-    search_generic(".java","ProcessIncoming", 'logs/log_v8.2.txt')
-    search_generic(".java","Shutdown", 'logs/log_v8.2.txt')
-    search_generic(".java","JDWPFun", 'logs/log_v8.2.txt')
-    search_generic(".java","mman.h", 'logs/log_v8.2.txt')
-    search_generic(".java","jdwp.h", 'logs/log_v8.2.txt')
-    search_generic(".java","##__VA_ARGS__", 'logs/log_v8.2.txt')
-    search_generic(".java","libart.so", 'logs/log_v8.2.txt')
-    search_generic(".java","RTLD_NOW", 'logs/log_v8.2.txt')
-    search_generic(".java","libart.so", 'logs/log_v8.2.txt')
-    search_generic(".java","mprotect", 'logs/log_v8.2.txt')
-    search_generic(".java","ptrace", 'logs/log_v8.2.txt')
-    search_generic(".java","/status", 'logs/log_v8.2.txt')
-    search_generic(".java","TracerPid", 'logs/log_v8.2.txt')
-    search_generic(".java","hasTracerPid", 'logs/log_v8.2.txt')
-    search_generic(".java","IsDebuggerAttached", 'logs/log_v8.2.txt')
-    search_generic(".java","PTRACE_ATTACH", 'logs/log_v8.2.txt')
-    search_generic(".java","PTRACE_CONT", 'logs/log_v8.2.txt')
-    search_generic(".java","getppid", 'logs/log_v8.2.txt')
-    search_generic(".java","fork", 'logs/log_v8.2.txt')
-    search_generic(".java","waitpid", 'logs/log_v8.2.txt')
-    search_generic(".java","pthread", 'logs/log_v8.2.txt')
-    search_generic(".java","WIFSTOPPED", 'logs/log_v8.2.txt')
-    search_generic(".java","pthread", 'logs/log_v8.2.txt')
-    search_generic(".java","libc.so", 'logs/log_v8.2.txt')
-    search_generic(".java","_exit", 'logs/log_v8.2.txt')
+    globals.write_to_file("START OF: Execution log for V8.2\n", "logs/log_RESILIENCE-2.txt")
+    search_hardcode("ptrace", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("PT_DENY_ATTACH", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("dlsym", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("dlfcn", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("sysctl", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("info.kp_proc.p_flag", 'logs/log_RESILIENCE-2.txt')
+    search_hardcode("getppid", 'logs/log_RESILIENCE-2.txt')
 
-    search_generic(".c","JNIEXPORT", 'logs/log_v8.2.txt')
-    search_generic(".c","JNICALL", 'logs/log_v8.2.txt')
-    search_generic(".c","gDvm", 'logs/log_v8.2.txt')
-    search_generic(".c","debuggerConnected", 'logs/log_v8.2.txt')
-    search_generic(".c","debuggerActive", 'logs/log_v8.2.txt')
-    search_generic(".c","JNI_TRUE", 'logs/log_v8.2.txt')
-    search_generic(".c","JNI_FALSE", 'logs/log_v8.2.txt')
-    search_generic(".c","threadCpuTimeNanos", 'logs/log_v8.2.txt')
-    search_generic(".c","DvmGlobals", 'logs/log_v8.2.txt')
-    search_generic(".c","jdwpAllowed", 'logs/log_v8.2.txt')
-    search_generic(".c","jdwpConfigured", 'logs/log_v8.2.txt')
-    search_generic(".c","JdwpTransportType", 'logs/log_v8.2.txt')
-    search_generic(".c","JdwpState", 'logs/log_v8.2.txt')
-    search_generic(".c","methDalvikDdmcServer_dispatch", 'logs/log_v8.2.txt')
-    search_generic(".c","JdwpSocketState", 'logs/log_v8.2.txt')
-    search_generic(".c","JdwpAdbState", 'logs/log_v8.2.txt')
-    search_generic(".c","ProcessIncoming", 'logs/log_v8.2.txt')
-    search_generic(".c","Shutdown", 'logs/log_v8.2.txt')
-    search_generic(".c","JDWPFun", 'logs/log_v8.2.txt')
-    search_generic(".c","mman.h", 'logs/log_v8.2.txt')
-    search_generic(".c","jdwp.h", 'logs/log_v8.2.txt')
-    search_generic(".c","##__VA_ARGS__", 'logs/log_v8.2.txt')
-    search_generic(".c","libart.so", 'logs/log_v8.2.txt')
-    search_generic(".c","RTLD_NOW", 'logs/log_v8.2.txt')
-    search_generic(".c","libart.so", 'logs/log_v8.2.txt')
-    search_generic(".c","mprotect", 'logs/log_v8.2.txt')
-    search_generic(".c","ptrace", 'logs/log_v8.2.txt')
-    search_generic(".c","/status", 'logs/log_v8.2.txt')
-    search_generic(".c","TracerPid", 'logs/log_v8.2.txt')
-    search_generic(".c","hasTracerPid", 'logs/log_v8.2.txt')
-    search_generic(".c","IsDebuggerAttached", 'logs/log_v8.2.txt')
-    search_generic(".c","PTRACE_ATTACH", 'logs/log_v8.2.txt')
-    search_generic(".c","PTRACE_CONT", 'logs/log_v8.2.txt')
-    search_generic(".c","getppid", 'logs/log_v8.2.txt')
-    search_generic(".c","fork", 'logs/log_v8.2.txt')
-    search_generic(".c","waitpid", 'logs/log_v8.2.txt')
-    search_generic(".c","pthread", 'logs/log_v8.2.txt')
-    search_generic(".c","WIFSTOPPED", 'logs/log_v8.2.txt')
-    search_generic(".c","pthread", 'logs/log_v8.2.txt')
-    search_generic(".c","libc.so", 'logs/log_v8.2.txt')
-    search_generic(".c","_exit", 'logs/log_v8.2.txt')
+    globals.write_to_file("\nEND OF: Execution log for V8.2\n", "logs/log_RESILIENCE-2.txt")
+    print("Completed MSTG-RESILIENCE-2 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
-    globals.write_to_file("\nEND OF: Execution log for V8.2\n", "logs/log_v8.2.txt")
-    print("Completed V8.2 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+
+# **************************************************************************
+# OWASP MASVS v1.0 point 8.2
+# Cheat Sheet:
+# File Integrity Checks (MSTG-RESILIENCE-3 and MSTG-RESILIENCE-11)
+# **************************************************************************
+def search_anti_debug():
+    globals.write_to_file("START OF: Execution log for V8.2\n", "logs/log_RESILIENCE-3.txt")
+    search_hardcode("mach_header", 'logs/log_RESILIENCE-3.txt')
+    search_hardcode("NSMutableData", 'logs/log_RESILIENCE-3.txt')
+    search_hardcode("HMAC", 'logs/log_RESILIENCE-3.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V8.2\n", "logs/log_RESILIENCE-3.txt")
+    print("Completed MSTG-RESILIENCE-3 by: " + str((datetime.datetime.now() - globals.gv_time_start).total_seconds()) + " seconds")
 
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.3
 #Cheat Sheet:
-#Search for "MAC", 
-#Details:
-#Code integrity checks and The file storage integrity checks
+#Reverse Engineering Tools Detection (MSTG-RESILIENCE-4)
 #**************************************************************************
 def search_integrity_check():
     globals.write_to_file("START OF: Execution log for V8.3\n", "logs/log_v8.3.txt")
