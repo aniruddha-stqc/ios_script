@@ -150,7 +150,7 @@ def search_logging():
 #**************************************************************************
 def search_logging():
     globals.write_to_file("START OF: Execution log for V2.3\n", "logs/log_STORAGE-4.txt")
-    search_generic(".pod","pod", 'logs/log_STORAGE-4.txt')
+    search_hardcode("pod", 'logs/log_STORAGE-4.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V2.3\n", "logs/log_STORAGE-4.txt")
     print("Completed MSTG-STORAGE-4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
@@ -180,8 +180,8 @@ def search_clipboard():
     search_generic(".swift", "NSXPCInterface", 'logs/log_STORAGE-6.txt')
     search_generic(".swift", "NSXPCListener", 'logs/log_STORAGE-6.txt')
     search_generic(".swift", "NSXPCListenerEndpoint", 'logs/log_STORAGE-6.txt')
-    search_generic(".c", "xpc.h", 'logs/log_STORAGE-6.txt')
-    search_generic(".c", "connection.h", 'logs/log_STORAGE-6.txt')
+    search_hardcode( "xpc.h", 'logs/log_STORAGE-6.txt')
+    search_hardcode( "connection.h", 'logs/log_STORAGE-6.txt')
     search_generic(".swift", "mach_port_t", 'logs/log_STORAGE-6.txt')
     search_generic(".swift", "mach_msg_", 'logs/log_STORAGE-6.txt')
     search_generic(".swift", "CFMachPort", 'logs/log_STORAGE-6.txt')
@@ -242,11 +242,11 @@ def search_algos():
     search_generic(".swift","public", 'logs/log_CRYPTO-2.txt')
     search_generic(".swift", "private", 'logs/log_CRYPTO-2.txt')
 
-    search_generic(".c","Commoncryptor.h", 'logs/log_CRYPTO-2.txt')
-    search_generic(".c", "CommonDigest.h", 'logs/log_CRYPTO-2.txt')
-    search_generic(".c", "CommonHMAC.h", 'logs/log_CRYPTO-2.txt')
-    search_generic(".c", "CommonKeyDerivation.h", 'logs/log_CRYPTO-2.txt')
-    search_generic(".c", "CommonSymmetricKeywrap.h", 'logs/log_CRYPTO-2.txt')
+    search_hardcode("Commoncryptor.h", 'logs/log_CRYPTO-2.txt')
+    search_hardcode("CommonDigest.h", 'logs/log_CRYPTO-2.txt')
+    search_hardcode( "CommonHMAC.h", 'logs/log_CRYPTO-2.txt')
+    search_hardcode( "CommonKeyDerivation.h", 'logs/log_CRYPTO-2.txt')
+    search_hardcode( "CommonSymmetricKeywrap.h", 'logs/log_CRYPTO-2.txt')
     search_generic(".swift", "IDZSwiftCommonCrypto", 'logs/log_CRYPTO-2.txt')
     search_generic(".swift", "Heimdall", 'logs/log_CRYPTO-2.txt')
     search_generic(".swift", "SwiftyRSA", 'logs/log_CRYPTO-2.txt')
@@ -286,7 +286,7 @@ def search_old_algos():
     search_generic(".swift", "NSUserDefaults", 'logs/log_CRYPTO-5.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V3.3\n", "logs/log_CRYPTO-5.txt")
-    print("Completed CRYPTO-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-CRYPTO-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 3.6
@@ -420,7 +420,7 @@ def search_ipc_input():
     search_generic(".swift", "apple-app-site-association", 'logs/log_PLATFORM-1.txt')
 
     globals.write_to_file("\nEND OF: Execution log for V6.2\n", 'logs/log_PLATFORM-1.txt')
-    print("Completed V6.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    print("Completed MSTG-PLATFORM-1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 
 #**************************************************************************
@@ -623,18 +623,35 @@ def search_debugging_code():
 #**************************************************************************
 #OWASP MASVS v1.0 point 7.9
 #Cheat Sheet:
-#Search for "minifyEnabled", "shrinkResources",
-#Details:
-#Free security features offered by the toolchain, such as byte-code
-# minification, stack protection, PIE support and automatic reference counting,
-# are activated.
+#Weaknesses in Third Party Libraries (MSTG-CODE-5)
 #**************************************************************************
 def search_gradle():
-    globals.write_to_file("START OF: Execution log for V7.9\n", "logs/log_v7.9.txt")
-    search_generic(".gradle","minifyEnabled", 'logs/log_v7.9.txt')
-    search_generic(".gradle","shrinkResources", 'logs/log_v7.9.txt')
-    globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_v7.9.txt")
-    print("Completed V7.9 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V7.9\n", "logs/log_CODE-5.txt")
+    search_hardcode("carthage", 'logs/log_CODE-5.txt')
+    search_hardcode("cocoa", 'logs/log_CODE-5.txt')
+    globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_CODE-5.txt")
+    print("Completed MSTG-CODE-5 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+
+#**************************************************************************
+#OWASP MASVS v1.0 point 7.9
+#Cheat Sheet:
+#Testing Exception Handling (MSTG-CODE-6)
+#**************************************************************************
+def search_gradle():
+    globals.write_to_file("START OF: Execution log for V7.9\n", "logs/log_CODE-6.txt")
+    search_generic(".swift", "NSException", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "NSError", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "@catch", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "@finally", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "@try", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "@throw", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "raise", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "defer", 'logs/log_CODE-6.txt')
+    search_generic(".swift", "NSSetUncaughtExceptionHandler", 'logs/log_CODE-6.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_CODE-6.txt")
+    print("Completed MSTG-CODE-6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+
 
 
 #**************************************************************************
