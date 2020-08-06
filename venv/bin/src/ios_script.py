@@ -70,11 +70,11 @@ def analyze_target():
     #OWASP MASVS v1.0 point 8.3
     analyze_code.search_integrity_check()
     #OWASP MASVS v1.0 point 8.4
-    analyze_code.search_reverse_tools()
+    #analyze_code.search_reverse_tools()
     #OWASP MASVS v1.0 point 8.5
-    analyze_code.search_emulator_detect()
+    #analyze_code.search_emulator_detect()
     #OWASP MASVS v1.0 point 8.6
-    analyze_code.search_runtime_integrity()
+    #analyze_code.search_runtime_integrity()
     #OWASP MASVS v1.0 point 8.9
     analyze_code.search_obfuscation()
     #OWASP MASVS v1.0 point 8.10

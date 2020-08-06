@@ -798,52 +798,16 @@ def search_anti_debug():
 #Reverse Engineering Tools Detection (MSTG-RESILIENCE-4)
 #**************************************************************************
 def search_integrity_check():
-    globals.write_to_file("START OF: Execution log for V8.3\n", "logs/log_v8.3.txt")
-    search_generic(".java","getPackageCodePath", 'logs/log_v8.3.txt')
-    search_generic(".java","dex_crc", 'logs/log_v8.3.txt')
-    search_generic(".java","ZipFile", 'logs/log_v8.3.txt')
-    search_generic(".java","ZipEntry", 'logs/log_v8.3.txt')
-    search_generic(".java","getCrc", 'logs/log_v8.3.txt')
-    search_generic(".java","hmac", 'logs/log_v8.3.txt')
-    search_generic(".java","BouncyCastle", 'logs/log_v8.3.txt')
-    search_generic(".java","SpongyCastle", 'logs/log_v8.3.txt')
-    search_generic(".java","getMacLength", 'logs/log_v8.3.txt')
-    search_generic(".java","classes.dex", 'logs/log_v8.3.txt')
-    
-    globals.write_to_file("\nEND OF: Execution log for V8.3\n", "logs/log_v8.3.txt")
-    print("Completed V8.3 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V8.3\n", "logs/log_RESILIENCE-4.txt")
+    search_hardcode("/var/containers/Bundle/Application", 'logs/log_RESILIENCE-4.txt')
+    search_hardcode("_dyld_get_image_name", 'logs/log_RESILIENCE-4.txt')
+    search_hardcode("frida-server", 'logs/log_RESILIENCE-4.txt')
+    search_hardcode("radare2", 'logs/log_RESILIENCE-4.txt')
+    search_hardcode("Cutter", 'logs/log_RESILIENCE-4.txt')
+    search_hardcode("Ghidra", 'logs/log_RESILIENCE-4.txt')
 
-#**************************************************************************
-#OWASP MASVS v1.0 point 8.4
-#Cheat Sheet:
-#Search for "MAC", 
-#Details:
-#Reverse Engineering Tools
-#**************************************************************************
-def search_reverse_tools():
-    globals.write_to_file("START OF: Execution log for V8.4\n", "logs/log_v8.4.txt")
-    search_hardcode("Substrate", 'logs/log_v8.4.txt')
-    search_hardcode("Xposed", 'logs/log_v8.4.txt')
-    search_hardcode("Frida", 'logs/log_v8.4.txt')
-    
-    search_generic(".java","frida-trace", 'logs/log_v8.4.txt')
-    search_generic(".java","LD_PRELOAD", 'logs/log_v8.4.txt')
-    search_generic(".java","DYLD_INSERT_LIBRARIES", 'logs/log_v8.4.txt')
-    search_generic(".java","libgadget", 'logs/log_v8.4.txt')
-    search_generic(".java","gdbserver", 'logs/log_v8.4.txt')
-    search_generic(".java","LD_PRELOAD", 'logs/log_v8.4.txt')
-    search_generic(".java","FridaGadget", 'logs/log_v8.4.txt')
-    search_generic(".java","GET_SIGNING_CERTIFICATES", 'logs/log_v8.4.txt')
-    search_generic(".java","frida-server", 'logs/log_v8.4.txt')
-    search_generic(".java","frida-gadget", 'logs/log_v8.4.txt')
-    search_generic(".java","frida-agent", 'logs/log_v8.4.txt')
-    search_generic(".java","27042", 'logs/log_v8.4.txt')
-    search_generic(".java","LIBFRIDA", 'logs/log_v8.4.txt')
-    search_generic(".java","Runtime.getRuntime().exec", 'logs/log_v8.4.txt')
-    search_generic(".java","/proc/self/maps", 'logs/log_v8.4.txt')
-    
-    globals.write_to_file("\nEND OF: Execution log for V8.4\n", "logs/log_v8.4.txt")
-    print("Completed V8.4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("\nEND OF: Execution log for V8.3\n", "logs/log_RESILIENCE-4.txt")
+    print("Completed MSTG-RESILIENCE-4 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 
 #**************************************************************************
@@ -921,82 +885,46 @@ def search_runtime_integrity():
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.9
 #Cheat Sheet:
-#Search for "MAC", 
-#Details:
-#Obfuscation
+#Testing Obfuscation (MSTG-RESILIENCE-9)
 #**************************************************************************
 def search_obfuscation():
-    globals.write_to_file("START OF: Execution log for V8.9\n", "logs/log_v8.9.txt")
-    search_hardcode("proguard", 'logs/log_v8.9.txt')
-    search_hardcode("R8", 'logs/log_v8.9.txt')
-    search_hardcode("obfuscat", 'logs/log_v8.9.txt')
-    
-    globals.write_to_file("\nEND OF: Execution log for V8.9\n", "logs/log_v8.9.txt")
-    print("Completed V8.9 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V8.9\n", "logs/log_RESILIENCE-9.txt")
+    search_hardcode("obfuscat", 'logs/log_RESILIENCE-9.txt')
+    search_hardcode("jail", 'logs/log_RESILIENCE-9.txt')
+    search_hardcode("SwiftShield", 'logs/log_RESILIENCE-9.txt')
+    search_hardcode("obfuscator-llvm", 'logs/log_RESILIENCE-9.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V8.9\n", "logs/log_RESILIENCE-9.txt")
+    print("Completed MSTG-RESILIENCE-9 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.10
 #Cheat Sheet:
-#Search for "MAC", 
-#Details:
-#Device Binding
+#Device Binding (MSTG-RESILIENCE-10)
 #**************************************************************************
 def search_device_bind():
-    globals.write_to_file("START OF: Execution log for V8.10\n", "logs/log_v8.10.txt")
-    search_generic(".java","KeyGenParameterSpec", 'logs/log_v8.10.txt')
-    search_generic(".java","KEY_ALGORITHM_RSA", 'logs/log_v8.10.txt')
-    search_generic(".java","PURPOSE_DECRYPT", 'logs/log_v8.10.txt')
-    search_generic(".java","DIGEST_SHA256", 'logs/log_v8.10.txt')
-    search_generic(".java","DIGEST_SHA512", 'logs/log_v8.10.txt')
-    search_generic(".java","ENCRYPTION_PADDING_RSA_OAEP", 'logs/log_v8.10.txt')
-    search_generic(".java","PURPOSE_ENCRYPT", 'logs/log_v8.10.txt')
-    search_generic(".java","OAEPWithSHA", 'logs/log_v8.10.txt')
-    search_generic(".java","BLOCK_MODE_GCM", 'logs/log_v8.10.txt')
-    search_generic(".java","ENCRYPTION_PADDING_NONE", 'logs/log_v8.10.txt')
-    search_generic(".java","NoPadding", 'logs/log_v8.10.txt')
-    search_generic(".java","GCM_NONCE_LENGTH", 'logs/log_v8.10.txt')
-    search_generic(".java","GCM_TAG_LENGTH", 'logs/log_v8.10.txt')
-    search_generic(".java","GCMParameterSpec", 'logs/log_v8.10.txt')
-    search_generic(".java","updateAAD", 'logs/log_v8.10.txt')
-    search_generic(".java","ENCRYPT_MODE", 'logs/log_v8.10.txt')
-    search_generic(".java","DECRYPT_MODE", 'logs/log_v8.10.txt')
-    search_generic(".java","Cipher.getInstance", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.ANDROID_ID", 'logs/log_v8.10.txt')
-    search_generic(".java","AdvertisingIdClient", 'logs/log_v8.10.txt')
-    search_generic(".java","AdvertisingIdClient", 'logs/log_v8.10.txt')
-    search_generic(".java","FirebaseInstanceId", 'logs/log_v8.10.txt')
-    search_generic(".java","SSAID", 'logs/log_v8.10.txt')
-    search_generic(".java","Build.getSerial", 'logs/log_v8.10.txt')
-    search_generic(".java","Build.SERIAL", 'logs/log_v8.10.txt')
-    search_generic(".java","htc.camera.sensor.front_SN", 'logs/log_v8.10.txt')
-    search_generic(".java","persist.service.bdroid.bdadd", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.bluetooth_address", 'logs/log_v8.10.txt')
-    search_generic(".java","WifiInfo.getMacAddress", 'logs/log_v8.10.txt')
-    search_generic(".java","LOCAL_MAC_ADDRESS", 'logs/log_v8.10.txt')
-    search_generic(".java","TELEPHONY_SERVICE", 'logs/log_v8.10.txt')
-    search_generic(".java","getInstance", 'logs/log_v8.10.txt')
-    search_generic(".java","Instance", 'logs/log_v8.10.txt')
-    search_generic(".java","getId", 'logs/log_v8.10.txt')
-    search_generic(".java","getToken", 'logs/log_v8.10.txt')
-    search_generic(".java","getDeviceId", 'logs/log_v8.10.txt')
-    search_generic(".java","IDListenerService", 'logs/log_v8.10.txt')
-    search_generic(".java","FirebaseInstanceId", 'logs/log_v8.10.txt')
-    search_generic(".java","android.os.Build.SERIAL", 'logs/log_v8.10.txt')
-    search_generic(".java","android.os.Build.getSerial", 'logs/log_v8.10.txt')
-    search_generic(".java","TELEPHONY_SERVICE", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.ANDROID_ID", 'logs/log_v8.10.txt')
-    search_generic(".java","persist.service.bdroid.bdadd", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.bluetooth_address", 'logs/log_v8.10.txt')
-    search_generic(".java","WifiInfo.getMacAddress", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.ANDROID_ID", 'logs/log_v8.10.txt')
-    search_generic(".java","Settings.Secure.ANDROID_ID", 'logs/log_v8.10.txt')
-        
+    globals.write_to_file("START OF: Execution log for V8.10\n", "logs/log_RESILIENCE-10.txt")
+    search_hardcode("identifierForVendor", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("CTL_NET", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("NET_RT_IFLIST", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("NSHomeDirectory", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("Library/Developer/CoreSimulator/Devices", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("/data/Library/Keychains", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("/private/var/Keychains/keychain-2.db", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("UIDevice", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("uuidString", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("identifierForVendor", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAttrAccessibleWhenUnlockedThisDeviceOnly", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("SecAccessControlCreateFlags", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAccessControlDevicePasscode", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAccessControlUserPresence", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAccessControlBiometryAny", 'logs/log_RESILIENCE-10.txt')
+    search_hardcode("kSecAccessControlBiometryCurrentSet", 'logs/log_RESILIENCE-10.txt')
 
-    search_generic(".xml","READ_PHONE_STATE", 'logs/log_v8.10.txt')
-    search_generic(".xml","LOCAL_MAC_ADDRESS", 'logs/log_v8.10.txt')
-
-    globals.write_to_file("\nEND OF: Execution log for V8.10\n", "logs/log_v8.10.txt")
-    print("Completed V8.10 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("\nEND OF: Execution log for V8.10\n", "logs/log_RESILIENCE-10.txt")
+    print("Completed MSTG-RESILIENCE-10 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 
 
