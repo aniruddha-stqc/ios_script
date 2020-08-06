@@ -304,18 +304,48 @@ def search_random():
 #**************************************************************************
 #OWASP MASVS v1.0 point 4.1
 #Cheat Sheet:
-#Search for "OTP",
-#Details:
-#Verify that if the app provides users with access to a remote service, an
-#acceptable form of authentication such as username/password authentication
-#  is performed at the remote endpoint..
+#Testing Authentication (MSTG-AUTH-1)
 #**************************************************************************
 def search_authentication():
-    globals.write_to_file("START OF: Execution log for V4.1\n", "logs/log_v4.1.txt")
-    search_generic(".java","OTP", 'logs/log_v4.1.txt')
-    globals.write_to_file("\nEND OF: Execution log for V4.1\n", "logs/log_v4.1.txt")
-    print("Completed V4.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("START OF: Execution log for V4.1\n", "logs/log_AUTH-1.txt")
+    search_generic(".swift", "PIN", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "password", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "biometric", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "keychain", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "Touch", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "LocalAuthentication", 'logs/log_AUTH-1.txt')
+    search_generic(".swift", "Security.framework", 'logs/log_AUTH-1.txt')
 
+    globals.write_to_file("\nEND OF: Execution log for V4.1\n", "logs/log_AUTH-1.txt")
+    print("Completed MSTG-AUTH-1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+
+#**************************************************************************
+#OWASP MASVS v1.0 point 4.1
+#Cheat Sheet:
+#Testing Local Authentication (MSTG-AUTH-8)
+#**************************************************************************
+def search_local_authentication():
+    globals.write_to_file("START OF: Execution log for V4.1\n", "logs/log_AUTH-8.txt")
+
+    search_hardcode("deviceOwnerAuthentication", 'logs/log_AUTH-8.txt')
+    search_hardcode("LAPolicyDeviceOwnerAuthentication", 'logs/log_AUTH-8.txt')
+    search_hardcode("deviceOwnerAuthenticationWithBiometrics", 'logs/log_AUTH-8.txt')
+    search_hardcode("LAPolicyDeviceOwnerAuthenticationWithBiometrics", 'logs/log_AUTH-8.txt')
+    search_hardcode("evaluatePolicy", 'logs/log_AUTH-8.txt')
+    search_hardcode("LAContext", 'logs/log_AUTH-8.txt')
+    search_hardcode("SecAccessControl", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly", 'logs/log_AUTH-8.txt')
+    search_hardcode("SecAccessControlCreateFlags", 'logs/log_AUTH-8.txt')
+    search_hardcode("SecAccessControlCreateFlags", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAccessControlTouchIDCurrentSet", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAccessControlBiometryAny", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAccessControlTouchIDAny", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAccessControlUserPresence", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAttrAccessibleWhenPasscodeSet", 'logs/log_AUTH-8.txt')
+    search_hardcode("kSecAccessControlUserPresence", 'logs/log_AUTH-8.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V4.1\n", "logs/log_AUTH-8.txt")
+    print("Completed MSTG-AUTH-8 by: " + str((datetime.datetime.now() - globals.gv_time_start).total_seconds()) + " seconds")
 #**************************************************************************
 #OWASP MASVS v1.0 point 5.1
 #Cheat Sheet:
@@ -685,69 +715,48 @@ def search_gradle():
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.1
 #Cheat Sheet:
-#Search for "RootBeer", "SafetyNet",
-#Details:
-#we define "root detection" a bit more broadly, including custom ROMs 
-#detection, i.e., determining whether the device is a stock iOS build or
-#a custom build.
+#Jailbreak Detection (MSTG-RESILIENCE-1)
 #**************************************************************************
 def search_root_detect():
-    globals.write_to_file("START OF: Execution log for V8.1\n", "logs/log_v8.1.txt")
-    search_generic(".java","RootBeer", 'logs/log_v8.1.txt')
-    search_generic(".java","SafetyNet", 'logs/log_v8.1.txt')
-    search_generic(".java","ctsProfileMatch", 'logs/log_v8.1.txt')
-    search_generic(".java","basicIntegrity", 'logs/log_v8.1.txt')
-    search_generic(".java","nonces", 'logs/log_v8.1.txt')
-    search_generic(".java","timestampMs", 'logs/log_v8.1.txt')
-    search_generic(".java","apkPackageName", 'logs/log_v8.1.txt')
-    search_generic(".java","apkCertificateDigestSha256", 'logs/log_v8.1.txt')
-    search_generic(".java","apkDigestSha256", 'logs/log_v8.1.txt')
-    search_generic(".java","Superuser", 'logs/log_v8.1.txt')
-    search_generic(".java","/sbin/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/system/bin/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/system/bin/failsafe/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/system/xbin/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/system/xbin/busybox", 'logs/log_v8.1.txt')
-    search_generic(".java","/system/sd/xbin/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/data/local/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/data/local/xbin/su", 'logs/log_v8.1.txt')
-    search_generic(".java","/data/local/bin/su", 'logs/log_v8.1.txt')
-    
-    search_generic(".java","getenv", 'logs/log_v8.1.txt')
-    search_generic(".java","JNIEnv", 'logs/log_v8.1.txt')
-    search_generic(".java","jobject", 'logs/log_v8.1.txt')
-    search_generic(".java","jstring", 'logs/log_v8.1.txt')
-    search_generic(".java","struct stat", 'logs/log_v8.1.txt')
-    search_generic(".c","getenv", 'logs/log_v8.1.txt')
-    search_generic(".c","JNIEnv", 'logs/log_v8.1.txt')
-    search_generic(".c","jobject", 'logs/log_v8.1.txt')
-    search_generic(".c","jstring", 'logs/log_v8.1.txt')
-    search_generic(".c","struct stat", 'logs/log_v8.1.txt')
-    
-    search_generic(".java","getRuntime", 'logs/log_v8.1.txt')
-    search_generic(".java","getRunningAppProcesses", 'logs/log_v8.1.txt')
-    search_generic(".java","getRunningServices", 'logs/log_v8.1.txt')
-    search_generic(".java","RunningServiceInfo", 'logs/log_v8.1.txt')
-    search_generic(".java","com.thirdparty.superuser", 'logs/log_v8.1.txt')
-    search_generic(".java","eu.chainfire.supersu", 'logs/log_v8.1.txt')
-    search_generic(".java","com.noshufou.android.su", 'logs/log_v8.1.txt')
-    search_generic(".java","com.koushikdutta.superuser", 'logs/log_v8.1.txt')
-    search_generic(".java","com.zachspong.temprootremovejb", 'logs/log_v8.1.txt')
-    search_generic(".java","com.ramdroid.appquarantine", 'logs/log_v8.1.txt')
-    search_generic(".java","com.topjohnwu.magisk", 'logs/log_v8.1.txt')
-    search_generic(".java","Build.TAGS", 'logs/log_v8.1.txt')
-    search_generic(".java","test-keys", 'logs/log_v8.1.txt')
-    search_generic(".java","jdb", 'logs/log_v8.1.txt')
-    search_generic(".java","strace", 'logs/log_v8.1.txt')
-    search_generic(".java","/proc", 'logs/log_v8.1.txt')
-    
-    search_hardcode("DDMS", 'logs/log_v8.1.txt')
-    search_hardcode("Frida", 'logs/log_v8.1.txt')
-    search_hardcode("Xposed", 'logs/log_v8.1.txt')
-    search_hardcode("RootCloak", 'logs/log_v8.1.txt')
+    globals.write_to_file("START OF: Execution log for V8.1\n", "logs/log_RESILIENCE-1.txt")
+    search_generic(".swift", "Cydia", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "Cydia", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "IntelliScreen", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "MxTube", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "RockApp", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "SBSettings", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "WinterBoard", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "blackra1n", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "LiveClock", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "Veency", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "MobileSubstrate", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "com.ikey.bbot.plist", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "com.saurik.Cydia.Startup.plist", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/bin/bash", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "Veency", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/bin/sh", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/etc/apt", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/etc/ssh/sshd_config", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/private/var/lib/apt", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/private/var/lib/cydia", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/private/var/mobile/Library/SBSettings/Themes", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/private/var/stash", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/private/var/tmp/cydia.log", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/var/tmp/cydia.log", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "usr/bin/sshd", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/libexec/sftp-server", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/libexec/ssh-keysign", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/sbin/sshd", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/var/cache/apt", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/var/lib/cydia", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/bin/cycript", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/local/bin/cycript", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/usr/lib/libcycript.dylib", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "/var/log/syslog", 'logs/log_RESILIENCE-1.txt')
+    search_generic(".swift", "SFAntiPiracy", 'logs/log_RESILIENCE-1.txt')
 
-    globals.write_to_file("\nEND OF: Execution log for V8.1\n", "logs/log_v8.1.txt")
-    print("Completed V8.1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+    globals.write_to_file("\nEND OF: Execution log for V8.1\n", "logs/log_RESILIENCE-1.txt")
+    print("Completed MSTG-RESILIENCE-1 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 #**************************************************************************
 #OWASP MASVS v1.0 point 8.2

@@ -36,6 +36,8 @@ def analyze_target():
     analyze_code.search_random()
     #V4.1 Verify that if the app provides users an acceptable form of authentication
     analyze_code.search_authentication()
+    # V4.1 Verify that if the app provides users an acceptable form of authentication
+    analyze_code.search_local_authentication()
     #V5.1 Verify that data is encrypted on the network using TLS
     analyze_code.search_transport()
     #V5.3	Verify that the app verifies the X.509 certificate of the remote endpoint
