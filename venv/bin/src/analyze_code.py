@@ -652,6 +652,34 @@ def search_gradle():
     globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_CODE-6.txt")
     print("Completed MSTG-CODE-6 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
+#**************************************************************************
+#OWASP MASVS v1.0 point 7.9
+#Cheat Sheet:
+#Testing Exception Handling (MSTG-CODE-8)
+#**************************************************************************
+def search_gradle():
+    globals.write_to_file("START OF: Execution log for V7.9\n", "logs/log_CODE-8.txt")
+    search_generic(".swift", "free", 'logs/log_CODE-8.txt')
+    search_generic(".swift", "UnsafePointer", 'logs/log_CODE-8.txt')
+    search_generic(".swift", "Unmanaged", 'logs/log_CODE-8.txt')
+    search_generic(".swift", "NSAutoreleaseFreedObjectCheckEnabled", 'logs/log_CODE-8.txt')
+    search_generic(".swift", "NSZombieEnabled", 'logs/log_CODE-8.txt')
+    search_generic(".swift", "NSDebugEnabled", 'logs/log_CODE-8.txt')
+
+    globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_CODE-8.txt")
+    print("Completed MSTG-CODE-8 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
+
+#**************************************************************************
+#OWASP MASVS v1.0 point 7.9
+#Cheat Sheet:
+#Make Sure That Free Security Features Are Activated (MSTG-CODE-9)
+#**************************************************************************
+def search_gradle():
+    globals.write_to_file("START OF: Execution log for V7.9\n", "logs/log_CODE-9.txt")
+    globals.write_to_file("\nNeeds signed IPA file and Xcode Project Settings\n", "logs/log_CODE-9.txt")
+
+    globals.write_to_file("\nEND OF: Execution log for V7.9\n", "logs/log_CODE-9.txt")
+    print("Completed MSTG-CODE-9 by: " + str( (datetime.datetime.now() - globals.gv_time_start ).total_seconds() ) + " seconds")
 
 
 #**************************************************************************
