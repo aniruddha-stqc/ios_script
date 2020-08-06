@@ -352,7 +352,7 @@ def search_local_authentication():
 #App Transport Security (MSTG-NETWORK-2)
 #**************************************************************************
 def search_transport():
-    globals.write_to_file("START OF: Execution log for V5.1\n", "logs/log_v5.1.txt")
+    globals.write_to_file("START OF: Execution log for V5.1\n", "logs/log_NETWORK-2.txt")
     search_hardcode("http:", 'logs/log_NETWORK-2.txt')
     search_hardcode("https:", 'logs/log_NETWORK-2.txt')
     search_hardcode("ftp:", 'logs/log_NETWORK-2.txt')
